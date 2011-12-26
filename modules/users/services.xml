@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns="http://www.agileapes.com/pongo/services"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.agileapes.com/pongo/services ../../schema/services.xsd">
+
+    <service name="authentication" location="services/authentication.php">
+        <gateway id="login" json="true" stateful="true" returns="bool">
+            <argument name="username" type="string" optional="false"/>
+            <argument name="password" type="string" optional="false"/>
+            <argument name="remember" type="bool" optional="true"/>
+        </gateway>
+        <gateway id="logout" json="true" stateful="true" returns="bool"/>
+        <gateway id="success" json="false" stateful="false" returns="string">
+            <argument name=":submit-target" type="string" optional="false"/>
+        </gateway>
+        <gateway id="failure" json="false" stateful="false" returns="string"/>
+    </service>
+
+</services>

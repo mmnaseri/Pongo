@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.agileapes.com/pongo/pages"
+           xmlns="http://www.agileapes.com/pongo/pages"
+           elementFormDefault="qualified">
+
+    <xs:element name="pages">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="page" type="page" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="page">
+        <xs:all>
+            <xs:element name="parameters" type="parameters" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="options" type="options" minOccurs="0" maxOccurs="1"/>
+        </xs:all>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="url" type="xs:string" use="required"/>
+        <xs:attribute name="type" type="pageType" use="optional" default="script"/>
+    </xs:complexType>
+
+    <xs:simpleType name="pageType">
+        <xs:restriction>
+            <xs:enumeration value="script"/>
+            <xs:enumeration value="service"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="parameters">
+        <xs:sequence>
+            <xs:element name="parameter" type="parameter" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="options">
+        <xs:sequence>
+            <xs:element name="option" type="option" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="option">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="value" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="parameter">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="default" type="xs:string" use="required"/>
+    </xs:complexType>
+
+</xs:schema>

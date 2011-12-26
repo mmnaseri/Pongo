@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages xmlns="http://www.agileapes.com/pongo/pages"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.agileapes.com/pongo/pages ../../schema/pages.xsd">
+
+    <page name="test" url="pages/test.php" type="script">
+        <parameters>
+            <parameter name="parameter1" default="abc"/>
+            <parameter name="parameter2" default="def"/>
+        </parameters>
+        <options>
+            <option name="background-color" value="#bde0e3"/>
+        </options>
+    </page>
+
+    <page name="redirection" url="pages/redirection.php" type="script"/>
+
+</pages>

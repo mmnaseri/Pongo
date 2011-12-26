@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<region xmlns="http://www.agileapes.com/pongo/region"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.agileapes.com/pongo/region ../../schema/i18n.xsd"
+        language="en"
+        country="US">
+
+    <country>
+        <shortName>USA</shortName>
+        <fullName>United States of America</fullName>
+    </country>
+
+    <name>
+        <local>English</local>
+        <short>EN</short>
+    </name>
+
+    <input>
+        <direction>ltr</direction>
+        <charset>utf8</charset>
+    </input>
+
+    <currency>
+        <name>
+            <singular>Dollar</singular>
+            <plural>Dollars</plural>
+        </name>
+        <rate>1</rate>
+        <sign>USD</sign>
+        <separator>,</separator>
+    </currency>
+
+    <timezone>US/Pacific</timezone>
+
+    <calendar>gregorian</calendar>
+
+    <firstWeekday>MON</firstWeekday>
+
+    <numerics>
+        <digits>
+            <zero>0</zero>
+            <one>1</one>
+            <two>2</two>
+            <three>3</three>
+            <four>4</four>
+            <five>5</five>
+            <six>6</six>
+            <seven>7</seven>
+            <eight>8</eight>
+            <nine>9</nine>
+        </digits>
+        <symbols>
+            <percent>%</percent>
+            <openParenthesis>(</openParenthesis>
+            <closeParenthesis>)</closeParenthesis>
+            <semiColon>;</semiColon>
+        </symbols>
+    </numerics>
+
+</region>

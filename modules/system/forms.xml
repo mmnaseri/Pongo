@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns="http://www.agileapes.com/pongo/forms"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.agileapes.com/pongo/forms ../../schema/form.xsd">
+
+    <form name="login" target="/system/test">
+        <layout name="columns">
+            <layout name="rows">
+                <property name="border">false</property>
+                <layout name="rows">
+                    <property name="caption">Login</property>
+                    <component type="text" name="username">
+                        <property name="label">Username:</property>
+                    </component>
+                    <component type="password" name="password" title="Password here ...">
+                        <property name="label">Password:</property>
+                    </component>
+                    <component type="checkbox" name="remember">
+                        <property name="label">Remember me next time</property>
+                    </component>
+                </layout>
+
+                <layout name="rows-emphasis">
+                    <component type="submit">
+                        <property name="caption">Login</property>
+                    </component>
+                </layout>
+            </layout>
+            <component type="image">
+                <property name="source">/contents/themes/default/images/pongo-logo-bloodred.png</property>
+            </component>
+        </layout>
+    </form>
+
+</forms>

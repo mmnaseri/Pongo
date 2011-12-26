@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strings xmlns="http://www.agileapes.com/pongo/strings"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.agileapes.com/pongo/strings ../../schema/strings.xsd" country="IR" language="fa"
+         context="general">
+
+    <string>
+        <value>Hello world!</value>
+        <translation>سلام دنیا!</translation>
+    </string>
+
+    <string>
+        <value>Link</value>
+        <translation>پیوند</translation>
+    </string>
+
+    <string>
+        <value>Persian</value>
+        <translation>پارسی</translation>
+    </string>
+
+    <string>
+        <value>English</value>
+        <translation>انگلیسی</translation>
+    </string>
+
+    <string>
+        <value>Login</value>
+        <translation>ورود</translation>
+    </string>
+
+    <string>
+        <value>Test</value>
+        <translation>آزمایش</translation>
+    </string>
+
+    <string>
+        <value>Not Found</value>
+        <translation>پیدا نشد</translation>
+    </string>
+
+    <string>
+        <value>Access Denied</value>
+        <translation>خطای دست‌رسی</translation>
+    </string>
+
+    <string>
+        <value>Username:</value>
+        <translation>شناسه‌ی کاربری:</translation>
+    </string>
+
+    <string>
+        <value>Password:</value>
+        <translation>گذرواژه:</translation>
+    </string>
+
+    <string>
+        <value>Password here ...</value>
+        <translation>اینجا جای گذرواژه است ...</translation>
+    </string>
+
+    <string>
+        <value>Invalid username/password</value>
+        <translation>شناسه‌ی کاربری و/یا گذرواژه‌ی واردشده صحیح نیست.</translation>
+    </string>
+
+</strings>

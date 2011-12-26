@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.agileapes.com/pongo/services"
+           xmlns="http://www.agileapes.com/pongo/services"
+           elementFormDefault="qualified">
+
+    <xs:element name="services">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="service" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="gateway" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="location" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="gateway">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="title" type="annotation" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="annotation" type="annotation" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="argument" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute name="name" type="xs:string" use="optional"/>
+            <xs:attribute name="json" type="xs:boolean" use="required"/>
+            <xs:attribute name="returns" type="returnType" use="optional"/>
+            <xs:attribute name="stateful" type="xs:boolean" use="optional" default="false"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="argument">
+        <xs:complexType mixed="true">
+            <xs:complexContent>
+                <xs:extension base="annotation">
+                    <xs:attribute name="name" type="xs:string" use="required"/>
+                    <xs:attribute name="type" type="variableType" use="optional"/>
+                    <xs:attribute name="optional" type="xs:boolean" use="optional"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="variableType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="any"/>
+            <xs:enumeration value="bool"/>
+            <xs:enumeration value="numeric"/>
+            <xs:enumeration value="string"/>
+            <xs:enumeration value="array"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="returnType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="any"/>
+            <xs:enumeration value="bool"/>
+            <xs:enumeration value="numeric"/>
+            <xs:enumeration value="string"/>
+            <xs:enumeration value="array"/>
+            <xs:enumeration value="void"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="annotation" mixed="true">
+        <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

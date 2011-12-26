@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<region xmlns="http://www.agileapes.com/pongo/region"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.agileapes.com/pongo/region ../../schema/i18n.xsd"
+        language="fa"
+        country="IR">
+
+    <country>
+        <shortName>ایران</shortName>
+        <fullName>ایران</fullName>
+    </country>
+
+    <name>
+        <local>فارسی</local>
+        <short>فا</short>
+    </name>
+
+    <input>
+        <direction>rtl</direction>
+        <charset>utf8</charset>
+    </input>
+
+    <currency>
+        <name>
+            <singular>Rial</singular>
+            <plural>Rials</plural>
+        </name>
+        <rate>10560</rate>
+        <sign>IRR</sign>
+        <separator>٬</separator>
+    </currency>
+
+    <timezone>Asia/Tehran</timezone>
+
+    <calendar>jalali</calendar>
+
+    <firstWeekday>SAT</firstWeekday>
+
+    <numerics>
+        <digits>
+            <zero>۰</zero>
+            <one>۱</one>
+            <two>۲</two>
+            <three>۳</three>
+            <four>۴</four>
+            <five>۵</five>
+            <six>۶</six>
+            <seven>۷</seven>
+            <eight>۸</eight>
+            <nine>۹</nine>
+        </digits>
+        <symbols>
+            <percent>٪</percent>
+            <openParenthesis>(</openParenthesis>
+            <closeParenthesis>)</closeParenthesis>
+            <semiColon>؛</semiColon>
+        </symbols>
+    </numerics>
+
+</region>

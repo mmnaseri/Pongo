@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns="http://www.agileapes.com/pongo/services"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.agileapes.com/pongo/services ../../schema/services.xsd">
+
+    <service name="page" location="services/page.php">
+        <gateway id="init.js" json="false"/>
+        <gateway id="get" json="true" stateful="true">
+            <argument name="url" type="string"/>
+            <argument name="data" type="any"/>
+        </gateway>
+    </service>
+
+    <service name="widgets" location="services/widgets.php">
+        <gateway id="get" json="true" returns="string">
+            <argument name="name" type="string" optional="false"/>
+        </gateway>
+    </service>
+
+    <service name="theme" location="services/theme.php">
+        <gateway id="styles" json="true"/>
+        <gateway id="scripts" json="true"/>
+    </service>
+
+    <service name="forms" location="services/forms.php">
+        <gateway id="get" json="true">
+            <argument name="name" type="string" optional="false"/>
+            <argument name="url" type="string" optional="false"/>
+        </gateway>
+    </service>
+
+    <service name="system" location="services/system.php">
+        <gateway id="echo" name="talkBack" json="false" stateful="false" returns="string">
+            <argument name="input" type="string" optional="false"/>
+        </gateway>
+    </service>
+
+</services>

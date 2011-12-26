@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme xmlns="http://www.agileapes.com/pongo/theme"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.agileapes.com/pongo/theme ../../../schema/theme.xsd">
+
+    <meta>
+        <name>Default</name>
+        <version>1.0</version>
+        <signature>1234567890abcdef</signature>
+    </meta>
+
+    <head>
+        <style src="css/main.css"/>
+        <style src="css/main.rtl.css">
+            <condition target="page" key="dir" value="rtl"/>
+        </style>
+        <!--<script>-->
+        <!--<inline>-->
+        <!--Common.addInitializer(function () {-->
+        <!--var inputs = document.getElementsByTagName('input');-->
+        <!--for (var i = 0; Common.comparison.lt(i, inputs.length); i ++) {-->
+        <!--var input = inputs[i];-->
+        <!--if (input.handledForms) {-->
+        <!--continue;-->
+        <!--}-->
+        <!--input.handledForms = true;-->
+        <!--Common.attachHandler(input, 'focus', function (e) {-->
+        <!--var node = Common.getEventTarget(e);-->
+        <!--node = node.parentNode;-->
+        <!--while (node &amp;&amp; node.nodeName &amp;&amp; node.nodeName.toLowerCase() == 'span') {-->
+        <!--Common.addClassName(node, 'focused');-->
+        <!--node = node.parentNode;-->
+        <!--}-->
+        <!--});-->
+        <!--Common.attachHandler(input, 'blur', function (e) {-->
+        <!--var node = Common.getEventTarget(e);-->
+        <!--node = node.parentNode;-->
+        <!--while (node &amp;&amp; node.nodeName &amp;&amp; node.nodeName.toLowerCase() == 'span') {-->
+        <!--Common.removeClassName(node, 'focused');-->
+        <!--node = node.parentNode;-->
+        <!--}-->
+        <!--});-->
+        <!--}-->
+        <!--});-->
+        <!--Common.initPage();-->
+        <!--</inline>-->
+        <!--</script>-->
+    </head>
+
+    <body>
+        <div id='theme-page-background'>
+            <placeholder/>
+            <div id="pongo-logo" class='float-right'>&amp;nbsp;</div>
+            <widget name="MainMenu" id="mainmenu"/>
+            <content/>
+        </div>
+        <widget name="LanguageMenu" id="langmenu"/>
+    </body>
+
+</theme>

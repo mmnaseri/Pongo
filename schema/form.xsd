@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.agileapes.com/pongo/forms"
+           xmlns="http://www.agileapes.com/pongo/forms"
+           elementFormDefault="qualified">
+
+    <xs:element name="forms">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="form" type="form" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+
+    </xs:element>
+
+    <xs:complexType name="form">
+        <xs:sequence>
+            <xs:element name="defaults" type="defaults" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="layout" type="layout" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="target" type="xs:string" use="required"/>
+        <xs:attribute name="method" type="method" use="optional" default="post"/>
+        <xs:attribute name="enctype" type="ContentType"
+                      default="application/x-www-form-urlencoded"/>
+        <xs:attribute name="onsubmit" type="xs:string"/>
+        <xs:attribute name="onreset" type="xs:string"/>
+        <xs:attribute name="accept" type="xs:string"/>
+        <xs:attribute name="accept-charset" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="layout">
+        <xs:sequence>
+            <xs:element name="defaults" type="defaults" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="property" type="property" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="layout" type="layout"/>
+                <xs:element name="component" type="element"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="element">
+        <xs:sequence>
+            <xs:element name="property" type="property" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="type" type="xs:string" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="id" type="xs:string" use="optional"/>
+        <xs:attribute name="style" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="title" type="xs:string" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="property" mixed="true">
+        <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="processContents" type="contentProcessing" use="optional"/>
+    </xs:complexType>
+
+    <xs:element name="list">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="set">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="map">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+                        </xs:sequence>
+                        <xs:attribute name="key" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="defaults">
+        <xs:sequence>
+            <xs:element name="value">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+                    </xs:sequence>
+                    <xs:attribute name="type" type="xs:string" use="required"/>
+                    <xs:attribute name="property" type="xs:string" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="contentProcessing">
+        <xs:restriction>
+            <xs:enumeration value="skip"/>
+            <xs:enumeration value="lax"/>
+            <xs:enumeration value="strict"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="method">
+        <xs:restriction>
+            <xs:enumeration value="get"/>
+            <xs:enumeration value="post"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ContentType">
+        <xs:annotation>
+            <xs:documentation>
+                media type, as per [RFC2045]
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+</xs:schema>

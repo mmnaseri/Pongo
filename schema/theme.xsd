@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.agileapes.com/pongo/theme"
+           xmlns="http://www.agileapes.com/pongo/theme"
+           elementFormDefault="qualified">
+
+    <xs:element name="theme">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="meta" type="meta"/>
+                <xs:element name="head" type="head" minOccurs="0"/>
+                <xs:element name="body" type="body"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="meta">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="version" type="version"/>
+            <xs:element name="url" type="url" minOccurs="0"/>
+            <xs:element name="developer" type="developer" minOccurs="0"/>
+            <xs:element name="signature" type="signature" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="version">
+        <xs:restriction>
+            <xs:pattern value="\d+\.\d+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="url">
+        <xs:restriction>
+            <xs:pattern value="https?://\S+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="developer">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="email" type="email"/>
+            <xs:element name="url" type="url"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="email">
+        <xs:restriction>
+            <xs:pattern
+                    value="^([a-z]+[a-z0-9]*(?:[\\._][a-z]+[a-z0-9]*)*)(?:\\+([^@]*))?@(localhost|\\d{1,3}(?:\\.\\d{1,3}){3}|[a-z0-9\\-]+(?:\\.[a-z0-9\\-]+)+)\$"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="head">
+        <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="include" type="include"/>
+                <xs:element name="script" type="script"/>
+                <xs:element name="style" type="style"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="condition">
+        <xs:attribute name="target" type="xs:string" use="required"/>
+        <xs:attribute name="key" type="xs:string" use="required"/>
+        <xs:attribute name="value" type="xs:string" use="required"/>
+        <xs:attribute name="inverse" type="xs:boolean" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="include">
+        <xs:sequence>
+            <xs:element name="condition" type="condition" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="src" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="script">
+        <xs:sequence>
+            <xs:element name="condition" type="condition" minOccurs="0"/>
+            <xs:element name="inline" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="src" type="xs:string" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="style">
+        <xs:sequence>
+            <xs:element name="condition" type="condition" minOccurs="0"/>
+            <xs:element name="inline" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="src" type="xs:string" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="body" mixed="true">
+        <xs:sequence>
+            <xs:any minOccurs="1" maxOccurs="unbounded" processContents="skip"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="content"/>
+
+    <xs:element name="widget">
+        <xs:complexType>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="placeholder">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:restriction base="xs:string"/>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="signature">
+        <xs:restriction>
+            <xs:pattern value="[\da-z]{16}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

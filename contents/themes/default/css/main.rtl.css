@@ -1,0 +1,12 @@
+* {
+    direction: rtl;
+}
+
+body {
+    font-family: DejaVu, Tahoma, serif;
+    font-size: 12px;
+}
+
+.float-right {
+    float: left;
+}

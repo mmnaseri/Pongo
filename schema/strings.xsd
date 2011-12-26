@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.agileapes.com/pongo/strings"
+           xmlns="http://www.agileapes.com/pongo/strings"
+           elementFormDefault="qualified">
+
+    <xs:element name="strings">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="string" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="value" type="string"/>
+                            <xs:element name="translation" type="string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="language" type="languageCode" use="required"/>
+            <xs:attribute name="country" type="countryCode" use="required"/>
+            <xs:attribute name="context" type="xs:string" use="optional"/>
+            <xs:attribute name="score" type="xs:string" use="optional" default="1"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="languageCode">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-z]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="countryCode">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="string" mixed="true">
+        <xs:sequence>
+            <xs:any minOccurs="0" processContents="skip"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
