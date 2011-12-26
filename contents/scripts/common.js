@@ -325,7 +325,7 @@ if (!window.Common) {
         },
         clearElements:function (node) {
             while (node.firstChild) {
-                node.removeChild(node.firstChild());
+                node.removeChild(node.firstChild);
             }
         },
         copyElements:function (source, target) {

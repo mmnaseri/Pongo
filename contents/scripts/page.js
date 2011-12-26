@@ -51,6 +51,7 @@ if (!window.Page) {
             href += "#!" + Common.locale + ":" + url;
             window.location.href = href;
             var head = document.getElementsByTagName('head')[0];
+            Common.clearElements(head);
             Common.setHtml(head, "<title>" + document.title + "</title>" +
                 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />");
             Common.onReady(Common && document.page, function () {
